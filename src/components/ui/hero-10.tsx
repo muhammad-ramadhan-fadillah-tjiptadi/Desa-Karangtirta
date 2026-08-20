@@ -15,12 +15,13 @@ export interface Hero10Props {
   imageAlts?: string[]
   animation?: 'none' | 'subtle'
   primaryCTA?: CtaProps
+  secondaryCTAs?: CtaProps[]
   variant?: 'standard' | 'compact'
 }
 
 const variantStyles = {
   standard: {
-    section: 'py-8 sm:py-12',
+    section: 'pt-12 pb-20 sm:pt-16 sm:pb-32',
     title: 'text-3xl sm:text-4xl md:text-5xl',
     description: 'max-w-lg text-sm sm:text-base',
     header: 'gap-5',
@@ -168,6 +169,7 @@ export function Hero10({
   imageAlts,
   animation = 'subtle',
   primaryCTA,
+  secondaryCTAs,
   variant = 'standard',
 }: Readonly<Hero10Props>) {
   const reduce = useReducedMotion()
@@ -215,7 +217,7 @@ export function Hero10({
     <section className="bg-[#F8FAFC] relative isolate w-full overflow-hidden">
       <motion.div
         className={cn(
-          'relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6 text-center',
+          'relative z-20 mx-auto flex max-w-6xl flex-col items-center px-6 text-center',
           vs.section,
           vs.content,
         )}
@@ -237,9 +239,14 @@ export function Hero10({
 
         <div className={cn('mx-auto w-full mt-8', vs.fan)}>{mediaElement}</div>
 
-        {primaryCTA?.ctaEnabled && (
-          <Reveal active={animate} className="mt-8">
-            <Cta cta={primaryCTA} />
+        {(primaryCTA?.ctaEnabled || secondaryCTAs?.length) && (
+          <Reveal active={animate} className="mt-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
+              {primaryCTA?.ctaEnabled && <Cta cta={primaryCTA} />}
+              {secondaryCTAs?.map((cta, i) =>
+                cta.ctaEnabled ? <Cta key={i} cta={cta} /> : null
+              )}
+            </div>
           </Reveal>
         )}
       </motion.div>

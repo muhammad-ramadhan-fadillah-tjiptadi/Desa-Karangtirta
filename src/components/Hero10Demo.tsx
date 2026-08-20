@@ -1,28 +1,53 @@
-import { Hero10, type Hero10Props } from '@/components/ui/hero-10'
+import { Hero10, type Hero10Props } from "@/components/ui/hero-10";
 
 const values = {
-  title: 'Build faster interfaces',
-  titleLine2Prefix: 'with',
-  titleHighlight: 'Ready-Made Blocks',
+  title: "Selamat Datang di",
+  titleLine2Prefix: "Desa",
+  titleHighlight: "Karangtirta",
   description:
-    'Compose beautiful products from accessible, production-ready UI blocks that drop straight into your codebase.',
+    "Desa bahari yang mandiri — dari laut, untuk kesejahteraan bersama. Jelajahi potensi kemaritiman, jadwal TPI, dan layanan publik desa pesisir Karangtirta.",
   images: [
-    'https://images.unsplash.com/photo-1685013640715-8701bbaa2207?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1746467364902-ab40952e33fe?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    "/images/hero-1.png",
+    "/images/hero-2.png",
+    "/images/hero-3.png",
   ],
-  imageAlts: ['Design detail', 'Product interface', 'Layout composition'],
-  animation: 'subtle',
+  imageAlts: [
+    "Pemandangan pesisir pantai Karangtirta",
+    "Kegiatan nelayan dan Tempat Pelelangan Ikan (TPI)",
+    "Konservasi mangrove dan ekosistem pesisir",
+  ],
+  animation: "subtle",
   primaryCTA: {
     ctaEnabled: true,
-    text: 'Jelajahi Desa Kami',
-    link: '#profil',
-    variant: 'default',
-    size: 'default',
-    className: 'bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide',
+    text: "Lihat Jadwal TPI",
+    link: "#tpi",
+    variant: "default",
+    size: "default",
+    className:
+      "bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg",
   },
-} satisfies Hero10Props
+  secondaryCTAs: [
+    {
+      ctaEnabled: true,
+      text: "Cek Cuaca Laut",
+      link: "#cuaca",
+      variant: "default",
+      size: "default",
+      className:
+        "bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
+    },
+    {
+      ctaEnabled: true,
+      text: "Lapor Pengaduan",
+      link: "#pengaduan",
+      variant: "default",
+      size: "default",
+      className:
+        "bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
+    },
+  ],
+} satisfies Hero10Props;
 
 export default function Hero10Demo() {
-  return <Hero10 {...values} />
+  return <Hero10 {...values} />;
 }
