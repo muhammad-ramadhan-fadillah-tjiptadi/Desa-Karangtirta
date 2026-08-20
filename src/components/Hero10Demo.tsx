@@ -13,6 +13,13 @@ const values = {
   ],
   imageAlts: ['Design detail', 'Product interface', 'Layout composition'],
   animation: 'subtle',
+  primaryCTA: {
+    ctaEnabled: true,
+    text: 'Jelajahi Desa Kami',
+    link: '#profil',
+    variant: 'default',
+    size: 'default',
+  },
 } satisfies Hero10Props
 
 export default function Hero10Demo() {
