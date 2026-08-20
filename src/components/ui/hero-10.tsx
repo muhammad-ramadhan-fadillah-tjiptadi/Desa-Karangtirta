@@ -5,8 +5,7 @@ import { motion, useReducedMotion, type Variants } from 'motion/react'
 import Balancer from 'react-wrap-balancer'
 
 import { cn } from '@/lib/utils'
-
-
+import { Cta, type CtaProps } from '@/components/ui/hero-10-utils/cta'
 export interface Hero10Props {
   title: string
   titleLine2Prefix?: string
@@ -15,6 +14,7 @@ export interface Hero10Props {
   images: string[]
   imageAlts?: string[]
   animation?: 'none' | 'subtle'
+  primaryCTA?: CtaProps
   variant?: 'standard' | 'compact'
 }
 
@@ -167,6 +167,7 @@ export function Hero10({
   images,
   imageAlts,
   animation = 'subtle',
+  primaryCTA,
   variant = 'standard',
 }: Readonly<Hero10Props>) {
   const reduce = useReducedMotion()
@@ -235,6 +236,12 @@ export function Hero10({
         </Reveal>
 
         <div className={cn('mx-auto w-full mt-8', vs.fan)}>{mediaElement}</div>
+
+        {primaryCTA?.ctaEnabled && (
+          <Reveal active={animate} className="mt-8">
+            <Cta cta={primaryCTA} />
+          </Reveal>
+        )}
       </motion.div>
     </section>
   )
