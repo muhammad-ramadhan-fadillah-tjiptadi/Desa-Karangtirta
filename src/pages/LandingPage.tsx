@@ -10,7 +10,7 @@ export default function LandingPage() {
       </section>
 
       {/* 2. Profil Placeholder */}
-      <section id="profil" className="w-full min-h-screen bg-[#F5E6D3] flex items-center justify-center scroll-mt-20">
+      <section id="profil" className="w-full min-h-screen bg-[#F8FAFC] flex items-center justify-center scroll-mt-20">
         <ProfileSection />
       </section>
 
