@@ -1,28 +1,31 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+
 import { Drawer } from 'antd';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useScrollSpy } from '@/hooks/useScrollSpy';
 
 interface NavItem {
   label: string;
-  path: string;
+  id: string;
 }
 
 const NAV_LINKS: NavItem[] = [
-  { label: 'Beranda', path: '/' },
-  { label: 'Profil', path: '/profil' },
-  { label: 'Wisata Budaya', path: '/wisata' },
-  { label: 'Aparatur', path: '/aparatur' },
-  { label: 'Statistik', path: '/statistik' },
-  { label: 'Berita', path: '/berita' },
-  { label: 'UMKM', path: '/umkm' },
-  { label: 'CCTV', path: '/cctv' },
+  { label: 'Beranda', id: 'beranda' },
+  { label: 'Profil', id: 'profil' },
+  { label: 'Wisata Budaya', id: 'wisata' },
+  { label: 'Aparatur', id: 'aparatur' },
+  { label: 'Statistik', id: 'statistik' },
+  { label: 'Berita', id: 'berita' },
+  { label: 'UMKM', id: 'umkm' },
+  { label: 'CCTV', id: 'cctv' },
 ];
 
 export function Navbar() {
   const [isDrawerVisible, setIsDrawerVisible] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const activeSection = useScrollSpy(NAV_LINKS.map(link => link.id), 100);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +38,19 @@ export function Navbar() {
 
   const toggleDrawer = () => setIsDrawerVisible((prev) => !prev);
 
+  const scrollToSection = (id: string, e?: React.MouseEvent) => {
+    e?.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      // Offset untuk navbar (misal 80px)
+      const top = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+      if (isDrawerVisible) {
+        setIsDrawerVisible(false);
+      }
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -46,42 +62,51 @@ export function Navbar() {
         <nav
           className={`w-full transition-all duration-500 ease-out ${
             isScrolled 
-              ? 'bg-[#0A192F]/95 backdrop-blur-xl shadow-lg border-b border-white/10 py-3' 
-              : 'bg-transparent py-6'
+              ? 'py-3' 
+              : 'py-4'
           }`}
         >
           <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-            {/* Brand Name (Kiri) - Teks Putih Terang */}
-          <NavLink
-            to="/"
-            className="text-lg font-bold tracking-tight text-white shrink-0 select-none flex items-center gap-2"
+            {/* Brand Name (Kiri) */}
+          <button
+            onClick={(e) => scrollToSection('beranda', e)}
+            className="text-lg font-bold tracking-tight text-white bg-[#0F172A] px-5 py-2.5 rounded-full shrink-0 select-none flex items-center gap-2 shadow-sm"
           >
             Desa Karangtirta
-          </NavLink>
+          </button>
 
-          {/* Desktop Menu & CTA (Kanan) - Berada di dalam "Pill" abu-abu terang */}
-          <div className="hidden lg:flex items-center bg-[#E5E7EB] rounded-[20px] p-1.5 shadow-sm">
+          {/* Desktop Menu & CTA (Kanan) - Berada di dalam "Pill" biru navy */}
+          <div className="hidden lg:flex items-center bg-[#0F172A] rounded-full p-1.5 shadow-sm">
             <div className="flex items-center gap-1 px-2">
-              {NAV_LINKS.map((link) => (
-                <NavLink
-                  key={link.path}
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `px-3 py-2 text-[11px] font-bold tracking-wider uppercase rounded-xl transition-all duration-300 ease-out ${
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.id}
+                    href={`#${link.id}`}
+                    onClick={(e) => scrollToSection(link.id, e)}
+                    className={`relative px-3 py-2 text-[11px] font-bold tracking-wider uppercase rounded-full transition-colors duration-300 ease-out ${
                       isActive
-                        ? 'text-black'
-                        : 'text-slate-500 hover:text-black'
-                    }`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+                        ? 'text-[#0F172A]'
+                        : 'text-slate-300 hover:text-white'
+                    }`}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="navbar-active-pill"
+                        className="absolute inset-0 bg-white rounded-full z-0"
+                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                );
+              })}
             </div>
 
-            {/* CTA Button "LAYANAN" di dalam pill, warna gelap */}
+            {/* CTA Button "LAYANAN" di dalam pill, tanpa bg */}
             <button
-              className="bg-[#111827] text-white text-[11px] font-bold tracking-wider uppercase px-5 py-2.5 rounded-2xl ml-1 hover:bg-black active:scale-[0.97] transition-all duration-150 cursor-pointer"
+              className="text-white text-[11px] font-bold tracking-wider uppercase px-5 py-2.5 rounded-full ml-1 hover:bg-white/10 active:scale-[0.97] transition-all duration-150 cursor-pointer"
             >
               Layanan
             </button>
@@ -89,11 +114,11 @@ export function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+            className="lg:hidden text-white bg-[#0F172A] hover:bg-[#0A2540] p-2.5 rounded-full transition-colors shadow-sm"
             onClick={toggleDrawer}
             aria-label="Buka menu navigasi"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
           </div>
         </nav>
@@ -123,22 +148,23 @@ export function Navbar() {
         width={280}
       >
         <nav className="flex flex-col gap-2 pt-2">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              onClick={toggleDrawer}
-              className={({ isActive }) =>
-                `px-4 py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(link.id, e)}
+                className={`px-4 py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
                   isActive
                     ? 'text-black bg-white shadow-sm border border-slate-100'
                     : 'text-slate-500 hover:text-black hover:bg-slate-100'
-                }`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="mt-6 pt-6 border-t border-slate-200">

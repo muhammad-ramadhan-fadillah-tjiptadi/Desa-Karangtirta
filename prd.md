@@ -162,9 +162,12 @@ graph TD
 ## 4. Estetika Desain & Persyaratan Non-Fungsional (NFR)
 
 ### 4.1 Palet Warna & Tema Visual (Desa Pesisir / Bahari)
-* **Biru Navy (`#0A2540` / `#0F172A`)**: Digunakan sebagai warna latar belakang utama header, hero section, dan elemen struktural (Mencerminkan kedalaman laut & kesan profesional).
+* **Biru Navy (`#0A2540` / `#0F172A`)**: Digunakan sebagai warna latar belakang utama header/navbar, serta warna font untuk judul/heading utama (Mencerminkan kedalaman laut & kesan profesional).
 * **Biru Cyan (`#06B6D4` / `#0EA5E9`)**: Warna aksen untuk highlight status, button CTA, indikator aktif, dan gelombang (Mencerminkan keceriaan pesisir & air laut jernih).
-* **Pasir Pantai (`#F5E6D3` / `#FEF3C7` / `#F8FAFC`)**: Warna latar kartu, kontras teks hangat, dan latar konten (Mencerminkan kehangatan pantai & kemudahan membaca).
+* **Pasir Pantai (`#F8FAFC`)**: Warna latar belakang (background) utama aplikasi yang memberikan nuansa putih keabu-abuan yang bersih (Mencerminkan kehangatan pantai & kemudahan membaca).
+* **Monokrom (Hitam & Putih)**:
+  * **Hitam (`#0F172A` / `slate-900` / `black`)**: Digunakan khusus untuk teks paragraf/deskripsi di atas background terang untuk memaksimalkan tingkat keterbacaan (readability).
+  * **Putih (`#FFFFFF`)**: Digunakan untuk teks di atas komponen berlatar belakang gelap (misal: teks navigasi di dalam Navbar Biru Navy).
 
 ### 4.2 Aksesibilitas (WCAG 2.2 AA Compliance)
 * Kontras warna tinggi (minimal 4.5:1) aman dibaca dalam kondisi ruangan gelap maupun luar ruangan terik.

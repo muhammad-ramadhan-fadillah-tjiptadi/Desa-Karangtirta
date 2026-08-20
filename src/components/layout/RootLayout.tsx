@@ -3,9 +3,9 @@ import { Navbar } from './Navbar';
 
 export function RootLayout() {
   return (
-    <div className="min-h-screen bg-[#0A192F] text-slate-200 font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans">
       <Navbar />
-      <main className="pt-24 min-h-[100dvh]">
+      <main className="pt-20 min-h-[100dvh]">
         <Outlet />
       </main>
     </div>
