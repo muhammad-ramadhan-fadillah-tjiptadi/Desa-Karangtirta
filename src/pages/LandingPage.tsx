@@ -1,4 +1,5 @@
 import Hero10Demo from '@/components/Hero10Demo';
+import { ProfileSection } from '@/components/sections/ProfileSection';
 
 export default function LandingPage() {
   return (
@@ -10,7 +11,7 @@ export default function LandingPage() {
 
       {/* 2. Profil Placeholder */}
       <section id="profil" className="w-full min-h-screen bg-[#F5E6D3] flex items-center justify-center scroll-mt-20">
-        <h2 className="text-4xl font-bold text-[#0F172A]">Seksi Profil (Placeholder)</h2>
+        <ProfileSection />
       </section>
 
       {/* 3. Wisata Placeholder */}
