@@ -13,6 +13,14 @@ const values = {
   ],
   imageAlts: ['Design detail', 'Product interface', 'Layout composition'],
   animation: 'subtle',
+  primaryCTA: {
+    ctaEnabled: true,
+    text: 'Jelajahi Desa Kami',
+    link: '#profil',
+    variant: 'default',
+    size: 'default',
+    className: 'bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide',
+  },
 } satisfies Hero10Props
 
 export default function Hero10Demo() {
