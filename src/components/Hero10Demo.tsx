@@ -19,6 +19,7 @@ const values = {
     link: '#profil',
     variant: 'default',
     size: 'default',
+    className: 'bg-[#0F172A] hover:bg-[#0F172A]/90 text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide',
   },
 } satisfies Hero10Props
 
