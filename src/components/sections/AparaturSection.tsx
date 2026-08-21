@@ -1,55 +1,37 @@
 import { motion } from "framer-motion";
-import { Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const APARATUR_DATA = [
   {
     id: 1,
     name: "H. Suryaman, S.E.",
     role: "Kepala Desa",
-    image: "https://i.pravatar.cc/600?img=11",
-    schedule: "Senin - Jumat (08:00 - 14:00)",
-    level: 1, // Kades
+    image: "/images/aparatur-1.png",
   },
   {
     id: 2,
-    name: "Ahmad Fauzi",
+    name: "Siti Nurhaliza, S.AP.",
     role: "Sekretaris Desa",
-    image: "https://i.pravatar.cc/600?img=12",
-    schedule: "Senin - Jumat (08:00 - 15:00)",
-    level: 2, // Sekdes
+    image: "/images/aparatur-2.png",
   },
   {
     id: 3,
-    name: "Siti Nurhaliza",
-    role: "Kaur Keuangan",
-    image: "https://i.pravatar.cc/600?img=5",
-    schedule: "Selasa & Kamis (09:00 - 14:00)",
-    level: 3, // Kaur/Kasi
+    name: "Budi Santoso, S.E.",
+    role: "Kaur Keuangan & Pembangunan",
+    image: "/images/aparatur-3.png",
   },
   {
     id: 4,
-    name: "Budi Santoso",
-    role: "Kasi Kemaritiman",
-    image: "https://i.pravatar.cc/600?img=15",
-    schedule: "Senin, Rabu, Jumat (08:00 - 12:00)",
-    level: 3, 
-  },
-  {
-    id: 5,
-    name: "Dedi Supriadi",
+    name: "Drs. Dedi Supriadi",
     role: "Kepala Dusun Pesisir",
-    image: "https://i.pravatar.cc/600?img=33",
-    schedule: "Setiap Hari (16:00 - 18:00)",
-    level: 3,
+    image: "/images/aparatur-4.png",
   }
 ];
 
 export function AparaturSection() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
       {/* Header */}
-      <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
+      <div className="flex flex-col items-center text-center mb-12 lg:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,11 +39,11 @@ export function AparaturSection() {
           transition={{ duration: 0.6 }}
           className="flex items-center gap-3 mb-4"
         >
-          <div className="h-px w-12 bg-brand-sand/50"></div>
+          <div className="h-px w-12 bg-brand-sand"></div>
           <span className="text-brand-sand font-semibold tracking-widest uppercase text-sm">
             Struktur Pemerintahan
           </span>
-          <div className="h-px w-12 bg-brand-sand/50"></div>
+          <div className="h-px w-12 bg-brand-sand"></div>
         </motion.div>
         
         <motion.h2 
@@ -69,7 +51,7 @@ export function AparaturSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-black text-white mb-6"
+          className="text-3xl md:text-5xl font-black text-brand-navy mb-6"
         >
           Aparatur Desa
         </motion.h2>
@@ -79,34 +61,17 @@ export function AparaturSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-white/70 max-w-2xl text-sm md:text-base leading-relaxed"
+          className="text-slate-600 max-w-2xl text-sm md:text-base leading-relaxed"
         >
           Komitmen penuh dari jajaran aparatur Desa Karangtirta dalam memberikan pelayanan publik yang transparan, profesional, dan berorientasi pada kesejahteraan masyarakat pesisir.
         </motion.p>
       </div>
 
-      {/* Hierarchy Grid */}
-      <div className="flex flex-col items-center gap-8 md:gap-12">
-        {/* Level 1: Kepala Desa */}
-        <div className="w-full flex justify-center">
-          {APARATUR_DATA.filter(a => a.level === 1).map((pejabat, index) => (
-            <AparaturCard key={pejabat.id} data={pejabat} index={index} size="large" />
-          ))}
-        </div>
-
-        {/* Level 2: Sekretaris Desa */}
-        <div className="w-full flex justify-center">
-          {APARATUR_DATA.filter(a => a.level === 2).map((pejabat, index) => (
-            <AparaturCard key={pejabat.id} data={pejabat} index={index + 1} size="medium" />
-          ))}
-        </div>
-
-        {/* Level 3: Kaur, Kasi, Kadus */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
-          {APARATUR_DATA.filter(a => a.level === 3).map((pejabat, index) => (
-            <AparaturCard key={pejabat.id} data={pejabat} index={index + 2} size="medium" className="w-full max-w-sm" />
-          ))}
-        </div>
+      {/* Grid 4 Columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {APARATUR_DATA.map((pejabat, index) => (
+          <AparaturCard key={pejabat.id} data={pejabat} index={index} />
+        ))}
       </div>
     </div>
   );
@@ -114,14 +79,10 @@ export function AparaturSection() {
 
 function AparaturCard({ 
   data, 
-  index, 
-  size = "medium",
-  className 
+  index 
 }: { 
   data: typeof APARATUR_DATA[0], 
-  index: number,
-  size?: "large" | "medium",
-  className?: string
+  index: number 
 }) {
   return (
     <motion.div
@@ -129,49 +90,32 @@ function AparaturCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className={cn(
-        "group relative rounded-[2rem] overflow-hidden bg-brand-navy shadow-2xl shadow-black/20 cursor-pointer w-full max-w-sm",
-        size === "large" ? "aspect-[3/4] md:max-w-md lg:max-w-lg" : "aspect-[4/5] md:aspect-square",
-        className
-      )}
+      className="group relative rounded-2xl overflow-hidden bg-brand-navy shadow-lg aspect-[3/4] w-full"
     >
       {/* Photo */}
       <img 
         src={data.image} 
         alt={data.name} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
       
       {/* Gradient Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/30 to-transparent opacity-90 transition-opacity duration-500"></div>
 
-      {/* Content Overlay (Name & Role inside photo) */}
-      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-        <h3 className={cn(
-          "font-bold text-white leading-tight mb-1",
-          size === "large" ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
-        )}>
+      {/* Content Overlay */}
+      <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end">
+        {/* Role Pill */}
+        <div className="mb-3">
+          <span className="inline-block px-3 py-1.5 rounded-full bg-brand-navy border border-brand-sand/30 text-brand-sand text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-sm">
+            {data.role}
+          </span>
+        </div>
+        
+        {/* Name */}
+        <h3 className="font-bold text-white text-lg md:text-xl leading-snug">
           {data.name}
         </h3>
-        
-        <p className={cn(
-          "font-medium text-brand-sand tracking-wide uppercase",
-          size === "large" ? "text-sm" : "text-xs"
-        )}>
-          {data.role}
-        </p>
-
-        {/* Schedule (Reveals on Hover) */}
-        <div className="overflow-hidden mt-4">
-          <div className="flex items-center gap-2 text-white/80 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
-            <Clock className="w-4 h-4 text-brand-sand" />
-            <span className="text-xs md:text-sm font-medium">{data.schedule}</span>
-          </div>
-        </div>
       </div>
-      
-      {/* Subtle border ring */}
-      <div className="absolute inset-0 border border-white/10 rounded-[2rem] pointer-events-none transition-colors duration-500 group-hover:border-brand-sand/50"></div>
     </motion.div>
   );
 }

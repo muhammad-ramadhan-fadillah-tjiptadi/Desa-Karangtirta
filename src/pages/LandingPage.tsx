@@ -22,7 +22,7 @@ export default function LandingPage() {
       </section>
 
       {/* 4. Aparatur */}
-      <section id="aparatur" className="w-full min-h-screen bg-brand-navy flex items-center justify-center scroll-mt-20">
+      <section id="aparatur" className="w-full min-h-screen bg-brand-bg flex items-center justify-center scroll-mt-20">
         <AparaturSection />
       </section>
 
