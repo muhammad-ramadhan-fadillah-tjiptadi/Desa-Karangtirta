@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ShieldCheck, Compass, Check, Map as MapIcon, Building2, Cctv, Lightbulb, GraduationCap, TreePine, Cross } from "lucide-react";
+import { ShieldCheck, Check, Map as MapIcon, Building2, Cctv, Lightbulb, GraduationCap, TreePine, Cross } from "lucide-react";
 
 type TabId = "sejarah" | "visi-misi" | "potensi" | "peta";
 
