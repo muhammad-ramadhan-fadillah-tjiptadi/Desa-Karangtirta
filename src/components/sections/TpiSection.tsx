@@ -8,7 +8,7 @@ const weatherData = {
   temperature: "29°C",
   tide: "Pasang Naik (08:00 - 14:00)",
   status: "Waspada",
-  statusColor: "text-amber-700 bg-amber-50 ring-amber-600/20",
+  statusColor: "text-brand-navy bg-brand-sand ring-brand-navy/20",
   statusIcon: AlertTriangle,
 };
 
@@ -28,13 +28,13 @@ const commodityData = [
 
 export function TpiSection() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-24 lg:py-32">
+    <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12 py-24 lg:py-32">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div className="flex flex-col gap-4">
-          <span className="text-[#0EA5E9] font-mono font-bold tracking-widest uppercase text-sm">
+          <span className="text-brand-sand font-mono font-bold tracking-widest uppercase text-sm">
             Sentra Kelautan
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-[#0F172A] tracking-tighter leading-[1.05]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-brand-navy tracking-tighter leading-[1.05]">
             Informasi Maritim & <br />
             Pelelangan Ikan
           </h2>
@@ -52,7 +52,7 @@ export function TpiSection() {
           {/* Left Column: Maritime Weather */}
           <div className="lg:col-span-4 flex flex-col gap-8">
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Cuaca Maritim</h3>
+              <h3 className="text-2xl font-bold font-serif text-brand-navy">Cuaca Maritim</h3>
               <p className="text-slate-500 text-sm">Pembaruan langsung dari stasiun pantau pesisir.</p>
             </div>
 
@@ -68,37 +68,37 @@ export function TpiSection() {
 
               <div className="grid grid-cols-2 gap-4 mt-2 relative z-10">
                 <div className="flex flex-col gap-1 bg-white p-4 rounded-2xl shadow-sm ring-1 ring-slate-900/5">
-                  <Waves className="w-5 h-5 text-[#0EA5E9] mb-2" />
+                  <Waves className="w-5 h-5 text-brand-sand mb-2" />
                   <span className="text-xs text-slate-500 font-medium">Gelombang</span>
-                  <span className="font-bold text-[#0F172A]">{weatherData.waveHeight}</span>
+                  <span className="font-bold text-brand-navy">{weatherData.waveHeight}</span>
                 </div>
                 <div className="flex flex-col gap-1 bg-white p-4 rounded-2xl shadow-sm ring-1 ring-slate-900/5">
-                  <Wind className="w-5 h-5 text-[#0EA5E9] mb-2" />
+                  <Wind className="w-5 h-5 text-brand-sand mb-2" />
                   <span className="text-xs text-slate-500 font-medium">Angin</span>
-                  <span className="font-bold text-[#0F172A]">{weatherData.windSpeed}</span>
+                  <span className="font-bold text-brand-navy">{weatherData.windSpeed}</span>
                   <span className="text-[10px] text-slate-400">{weatherData.windDirection}</span>
                 </div>
                 <div className="flex flex-col gap-1 bg-white p-4 rounded-2xl shadow-sm ring-1 ring-slate-900/5">
-                  <ThermometerSun className="w-5 h-5 text-[#0EA5E9] mb-2" />
+                  <ThermometerSun className="w-5 h-5 text-brand-sand mb-2" />
                   <span className="text-xs text-slate-500 font-medium">Suhu Udara</span>
-                  <span className="font-bold text-[#0F172A]">{weatherData.temperature}</span>
+                  <span className="font-bold text-brand-navy">{weatherData.temperature}</span>
                 </div>
                 <div className="flex flex-col gap-1 bg-white p-4 rounded-2xl shadow-sm ring-1 ring-slate-900/5">
-                  <Anchor className="w-5 h-5 text-[#0EA5E9] mb-2" />
+                  <Anchor className="w-5 h-5 text-brand-sand mb-2" />
                   <span className="text-xs text-slate-500 font-medium">Pasang Surut</span>
-                  <span className="font-bold text-[#0F172A] text-xs sm:text-sm">{weatherData.tide}</span>
+                  <span className="font-bold text-brand-navy text-xs sm:text-sm">{weatherData.tide}</span>
                 </div>
               </div>
             </div>
             
             {/* TPI Info Card */}
-            <div className="bg-[#0F172A] text-white rounded-3xl p-6 relative overflow-hidden flex flex-col gap-6">
+            <div className="bg-brand-navy text-white rounded-3xl p-6 relative overflow-hidden flex flex-col gap-6">
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Ship className="w-24 h-24" />
               </div>
               <div className="flex items-center gap-3 relative z-10">
                 <div className="bg-white/10 p-2.5 rounded-xl">
-                  <MapPin className="w-5 h-5 text-[#F8FAFC]" />
+                  <MapPin className="w-5 h-5 text-brand-bg" />
                 </div>
                 <h4 className="font-bold text-lg">Lokasi TPI Utama</h4>
               </div>
@@ -112,18 +112,18 @@ export function TpiSection() {
           <div className="lg:col-span-8 flex flex-col gap-10">
             {/* Schedule */}
             <div className="flex flex-col gap-5">
-              <h3 className="text-2xl font-bold font-serif text-[#0F172A] flex items-center gap-3">
-                <Clock className="w-6 h-6 text-[#0EA5E9]" />
+              <h3 className="text-2xl font-bold font-serif text-brand-navy flex items-center gap-3">
+                <Clock className="w-6 h-6 text-brand-sand" />
                 Jadwal Pelelangan Ikan
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {tpiSchedule.map((schedule, idx) => (
                   <div key={idx} className="flex gap-4 p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition-colors">
-                    <div className="bg-slate-200/50 text-[#0F172A] font-bold px-3 py-1.5 rounded-lg self-start whitespace-nowrap text-sm">
+                    <div className="bg-slate-200/50 text-brand-navy font-bold px-3 py-1.5 rounded-lg self-start whitespace-nowrap text-sm">
                       {schedule.time}
                     </div>
                     <div className="flex flex-col gap-1">
-                      <h4 className="font-bold text-[#0F172A]">{schedule.type}</h4>
+                      <h4 className="font-bold text-brand-navy">{schedule.type}</h4>
                       <p className="text-slate-600 text-sm">{schedule.description}</p>
                     </div>
                   </div>
@@ -134,8 +134,8 @@ export function TpiSection() {
             {/* Catalog */}
             <div className="flex flex-col gap-5">
               <div className="flex justify-between items-end">
-                <h3 className="text-2xl font-bold font-serif text-[#0F172A] flex items-center gap-3">
-                  <Fish className="w-6 h-6 text-[#0EA5E9]" />
+                <h3 className="text-2xl font-bold font-serif text-brand-navy flex items-center gap-3">
+                  <Fish className="w-6 h-6 text-brand-sand" />
                   Katalog Komoditas Hari Ini
                 </h3>
                 <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest hidden sm:block">
@@ -156,13 +156,13 @@ export function TpiSection() {
                   <tbody>
                     {commodityData.map((item) => (
                       <tr key={item.id} className="border-b border-slate-50 hover:bg-slate-50/50 transition-colors group">
-                        <td className="py-4 pl-4 font-bold text-[#0F172A] group-hover:text-[#0EA5E9] transition-colors">{item.name}</td>
+                        <td className="py-4 pl-4 font-bold text-brand-navy group-hover:text-brand-sand transition-colors">{item.name}</td>
                         <td className="py-4">
                           <span className={cn(
                             "text-xs font-bold px-2.5 py-1 rounded-full",
-                            item.supply === "Tinggi" ? "bg-emerald-50 text-emerald-700" :
-                            item.supply === "Sedang" ? "bg-blue-50 text-blue-700" :
-                            "bg-rose-50 text-rose-700"
+                            item.supply === "Tinggi" ? "bg-brand-navy text-white" :
+                            item.supply === "Sedang" ? "bg-brand-navy/10 text-brand-navy" :
+                            "bg-brand-sand text-brand-navy"
                           )}>
                             {item.supply}
                           </span>
@@ -171,12 +171,12 @@ export function TpiSection() {
                         <td className="py-4 pr-4 text-right">
                           <div className="inline-flex items-center justify-end w-full">
                             {item.trend === "up" ? (
-                              <div className="flex items-center gap-1.5 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">
+                              <div className="flex items-center gap-1.5 text-brand-navy bg-brand-navy/10 px-2 py-1 rounded-lg">
                                 <TrendingUp className="w-4 h-4" />
                                 <span className="text-xs font-bold">Naik</span>
                               </div>
                             ) : (
-                              <div className="flex items-center gap-1.5 text-rose-600 bg-rose-50 px-2 py-1 rounded-lg">
+                              <div className="flex items-center gap-1.5 text-brand-navy bg-brand-sand px-2 py-1 rounded-lg">
                                 <TrendingDown className="w-4 h-4" />
                                 <span className="text-xs font-bold">Turun</span>
                               </div>
