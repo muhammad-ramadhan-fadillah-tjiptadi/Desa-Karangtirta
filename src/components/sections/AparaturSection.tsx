@@ -40,7 +40,6 @@ export function AparaturSection() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-4"
           >
-            <div className="h-px w-12 bg-brand-sand"></div>
             <span className="text-brand-sand font-semibold tracking-widest uppercase text-sm">
               Struktur Pemerintahan
             </span>
