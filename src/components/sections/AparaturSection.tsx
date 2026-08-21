@@ -31,37 +31,38 @@ export function AparaturSection() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
       {/* Header */}
-      <div className="flex flex-col items-center text-center mb-12 lg:mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-4"
-        >
-          <div className="h-px w-12 bg-brand-sand"></div>
-          <span className="text-brand-sand font-semibold tracking-widest uppercase text-sm">
-            Struktur Pemerintahan
-          </span>
-          <div className="h-px w-12 bg-brand-sand"></div>
-        </motion.div>
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-bold font-serif text-brand-navy mb-6"
-        >
-          Aparatur Desa
-        </motion.h2>
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mb-12 lg:mb-16 border-b border-brand-navy/10 pb-8 lg:pb-12">
+        <div className="flex flex-col items-start text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            <div className="h-px w-12 bg-brand-sand"></div>
+            <span className="text-brand-sand font-semibold tracking-widest uppercase text-sm">
+              Struktur Pemerintahan
+            </span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold font-serif text-brand-navy"
+          >
+            Aparatur Desa
+          </motion.h2>
+        </div>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-slate-600 max-w-2xl text-sm md:text-base leading-relaxed"
+          className="text-slate-600 max-w-lg text-sm md:text-base leading-relaxed text-left"
         >
           Komitmen penuh dari jajaran aparatur Desa Karangtirta dalam memberikan pelayanan publik yang transparan, profesional, dan berorientasi pada kesejahteraan masyarakat pesisir.
         </motion.p>
