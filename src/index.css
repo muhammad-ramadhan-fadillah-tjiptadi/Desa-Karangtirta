@@ -13,3 +13,19 @@ html {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-navy);
 }
+
+/* Ant Design Tabs Customization for Profile */
+.custom-profile-tabs .ant-tabs-nav::before {
+  border-bottom: 2px solid #e2e8f0 !important;
+}
+.custom-profile-tabs .ant-tabs-tab {
+  color: #64748b !important;
+}
+.custom-profile-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #0F172A !important;
+  font-weight: bold !important;
+}
+.custom-profile-tabs .ant-tabs-ink-bar {
+  background: #0F172A !important;
+  height: 3px !important;
+}
