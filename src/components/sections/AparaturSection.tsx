@@ -17,7 +17,7 @@ const APARATUR_DATA = [
   {
     id: 3,
     name: "Budi Santoso, S.E.",
-    role: "Kaur Keuangan & Pembangunan",
+    role: "Kaur Keuangan",
     image: "/images/aparatur-3.png",
   },
   {
