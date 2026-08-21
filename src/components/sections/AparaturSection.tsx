@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Carousel } from "antd";
 
 const APARATUR_DATA = [
   {
@@ -67,13 +68,24 @@ export function AparaturSection() {
         </motion.p>
       </div>
 
-      {/* Grid 4 Columns */}
-      <div className="w-full flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl justify-items-center">
+      {/* Desktop & Tablet Grid */}
+      <div className="hidden sm:flex w-full justify-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl justify-items-center">
           {APARATUR_DATA.map((pejabat, index) => (
             <AparaturCard key={pejabat.id} data={pejabat} index={index} />
           ))}
         </div>
+      </div>
+
+      {/* Mobile Carousel */}
+      <div className="block sm:hidden w-full max-w-[300px] mx-auto pb-8 relative">
+        <Carousel autoplay autoplaySpeed={2000} effect="fade">
+          {APARATUR_DATA.map((pejabat, index) => (
+            <div key={pejabat.id} className="pb-4">
+              <AparaturCard data={pejabat} index={index} />
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
   );
