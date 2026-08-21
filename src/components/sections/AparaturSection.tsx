@@ -29,9 +29,9 @@ const APARATUR_DATA = [
 
 export function AparaturSection() {
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
       {/* Header */}
-      <div className="flex flex-col items-center text-center mb-12 lg:mb-20">
+      <div className="flex flex-col items-center text-center mb-12 lg:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function AparaturSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-black text-brand-navy mb-6"
+          className="text-4xl md:text-5xl font-bold font-serif text-brand-navy mb-6"
         >
           Aparatur Desa
         </motion.h2>
@@ -68,10 +68,12 @@ export function AparaturSection() {
       </div>
 
       {/* Grid 4 Columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        {APARATUR_DATA.map((pejabat, index) => (
-          <AparaturCard key={pejabat.id} data={pejabat} index={index} />
-        ))}
+      <div className="w-full flex justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl justify-items-center">
+          {APARATUR_DATA.map((pejabat, index) => (
+            <AparaturCard key={pejabat.id} data={pejabat} index={index} />
+          ))}
+        </div>
       </div>
     </div>
   );
