@@ -21,7 +21,7 @@ export interface Hero10Props {
 
 const variantStyles = {
   standard: {
-    section: 'pt-12 pb-20 sm:pt-16 sm:pb-32',
+    section: 'pt-4 pb-16 sm:pt-8 sm:pb-24',
     title: 'text-3xl sm:text-4xl md:text-5xl',
     description: 'max-w-lg text-sm sm:text-base',
     header: 'gap-5',
@@ -179,7 +179,7 @@ export function Hero10({
   const titleElement = title && (
     <h1
       className={cn(
-        'text-[#0F172A] font-serif font-bold tracking-tight text-balance',
+        'text-brand-navy font-serif font-bold tracking-tight text-balance',
         vs.title,
       )}
     >
@@ -199,7 +199,7 @@ export function Hero10({
   )
 
   const descriptionElement = description && (
-    <p className={cn('text-black/80 font-medium', vs.description)}>
+    <p className={cn('text-brand-navy/80 font-medium', vs.description)}>
       <Balancer>{description}</Balancer>
     </p>
   )
@@ -214,7 +214,7 @@ export function Hero10({
   ) : null
 
   return (
-    <section className="bg-[#F8FAFC] relative isolate w-full overflow-hidden">
+    <section className="bg-transparent relative isolate w-full overflow-hidden">
       <motion.div
         className={cn(
           'relative z-20 mx-auto flex max-w-6xl flex-col items-center px-6 text-center',
