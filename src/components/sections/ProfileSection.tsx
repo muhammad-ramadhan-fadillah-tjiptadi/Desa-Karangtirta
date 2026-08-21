@@ -51,13 +51,20 @@ const MapContext = createContext<MapContextProps>({
 const InteractiveMapRenderer = () => {
   const { activeLayers, isSOSActive } = useContext(MapContext);
   const [hoveredRW, setHoveredRW] = useState<string | null>(null);
+  const [hoveredMarker, setHoveredMarker] = useState<number | null>(null);
 
   return (
-    <div className="w-full aspect-[4/3] md:aspect-[16/10] lg:aspect-auto lg:h-[700px] rounded-[2rem] overflow-hidden bg-brand-navy relative shadow-inner">
+    <div 
+      className="w-full rounded-[2rem] overflow-hidden bg-brand-navy relative shadow-inner"
+      onClick={() => {
+        setHoveredRW(null);
+        setHoveredMarker(null);
+      }}
+    >
       <img
         src="/images/peta-interaktif.png"
         alt="Peta Wilayah Interaktif"
-        className="w-full h-full absolute inset-0 object-cover"
+        className="w-full h-auto block"
       />
       <div className="absolute inset-0 bg-brand-navy/10"></div>
       
@@ -73,6 +80,11 @@ const InteractiveMapRenderer = () => {
                 strokeDasharray="1,1"
                 onMouseEnter={() => setHoveredRW(rw.id)}
                 onMouseLeave={() => setHoveredRW(null)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHoveredRW(hoveredRW === rw.id ? null : rw.id);
+                  setHoveredMarker(null);
+                }}
               />
             ))}
           </svg>
@@ -82,7 +94,7 @@ const InteractiveMapRenderer = () => {
             <div
               key={`label-${rw.id}`}
               className={cn(
-                "absolute -translate-x-1/2 -translate-y-1/2 px-3 py-1 rounded-full font-bold text-[10px] sm:text-xs shadow-sm border border-white/50 backdrop-blur-sm tracking-wider pointer-events-none transition-all duration-300 z-10", 
+                "absolute -translate-x-1/2 -translate-y-1/2 px-1.5 py-0.5 md:px-3 md:py-1 rounded-full font-bold text-[8px] md:text-xs shadow-sm border border-white/50 backdrop-blur-sm tracking-wider pointer-events-none transition-all duration-300 z-10", 
                 rw.bgColor, 
                 rw.color,
                 hoveredRW === rw.id ? "scale-110 shadow-md" : "scale-100"
@@ -151,8 +163,15 @@ const InteractiveMapRenderer = () => {
         return (
           <div 
             key={marker.id} 
-            className="absolute -translate-x-1/2 -translate-y-1/2 group"
+            className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
+            onMouseEnter={() => setHoveredMarker(marker.id)}
+            onMouseLeave={() => setHoveredMarker(null)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setHoveredMarker(hoveredMarker === marker.id ? null : marker.id);
+              setHoveredRW(null);
+            }}
           >
              {isBlinking && (
                <span className="absolute -inset-2 rounded-full animate-ping bg-red-500 opacity-75"></span>
@@ -162,19 +181,17 @@ const InteractiveMapRenderer = () => {
              </div>
              
              {/* Tooltip */}
-             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-brand-navy text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl pointer-events-none">
+             <div className={cn(
+               "absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-brand-navy text-white text-[10px] rounded transition-opacity whitespace-nowrap shadow-xl pointer-events-none",
+               hoveredMarker === marker.id ? "opacity-100" : "opacity-0"
+             )}>
                 {marker.label}
              </div>
           </div>
         );
       })}
 
-      <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm border border-slate-200 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
-        <Compass className="w-4 h-4 text-brand-sand" />
-        <span className="text-[11px] font-bold text-brand-navy tracking-widest font-mono">
-          N 7°13'40" E 107°54'31"
-        </span>
-      </div>
+
     </div>
   );
 };
