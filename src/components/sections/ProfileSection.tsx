@@ -65,7 +65,8 @@ const tabData: TabContent[] = [
             </h4>
             <p className="text-slate-600 leading-relaxed text-lg sm:text-xl">
               Mewujudkan Desa Karangtirta yang mandiri, sejahtera, dan berbudaya
-              berlandaskan semangat gotong royong masyarakat serta optimalisasi potensi maritim.
+              berlandaskan semangat gotong royong masyarakat serta optimalisasi
+              potensi maritim.
             </p>
           </div>
         ),
@@ -112,8 +113,9 @@ const tabData: TabContent[] = [
         content: (
           <p className="text-slate-600 leading-relaxed text-lg sm:text-xl">
             Desa Karangtirta memiliki keunggulan komparatif di bidang pertanian
-            dan pariwisata alam. Lahan agrikultur yang subur dan kontur perbukitan
-            memberikan nuansa asri nan memikat, bersanding dengan garis pantai yang indah.
+            dan pariwisata alam. Lahan agrikultur yang subur dan kontur
+            perbukitan memberikan nuansa asri nan memikat, bersanding dengan
+            garis pantai yang indah.
           </p>
         ),
       },
@@ -143,8 +145,9 @@ const tabData: TabContent[] = [
         content: (
           <p className="text-slate-600 leading-relaxed text-lg sm:text-xl">
             Terletak di titik strategis yang menghubungkan pusat kota dengan
-            kawasan wisata pegunungan. Akses transportasi yang memadai menjadikan
-            desa ini pusat lintasan yang dinamis bagi para wisatawan maritim.
+            kawasan wisata pegunungan. Akses transportasi yang memadai
+            menjadikan desa ini pusat lintasan yang dinamis bagi para wisatawan
+            maritim.
           </p>
         ),
       },
@@ -197,7 +200,7 @@ const ScrollSpyContent = ({
       {
         rootMargin: "-20% 0px -40% 0px",
         threshold: 0,
-      }
+      },
     );
 
     sectionElements.forEach((el) => observer.observe(el));
@@ -238,12 +241,11 @@ export function ProfileSection() {
 
   // Active section set by ScrollSpyContent
 
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       // Offset for sticky header if any, plus padding
-      const yOffset = -150; 
+      const yOffset = -150;
       const y = el.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -281,10 +283,8 @@ export function ProfileSection() {
 
       {/* The Big Card Wrapper */}
       <div className="bg-white rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-sm ring-1 ring-slate-900/5 min-h-[70vh]">
-        
         {/* ScrollSpy Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start relative">
-          
           {/* Left Sidebar (Sticky Table of Contents & Header) */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 hidden lg:block">
             <AnimatePresence mode="wait">
@@ -306,27 +306,31 @@ export function ProfileSection() {
                   <div className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
                     Daftar Isi
                   </div>
-                {activeContent.sections.map((section) => {
-                  const isActive = activeSectionId === section.id;
-                  return (
-                    <button
-                      key={section.id}
-                      onClick={() => scrollToSection(section.id)}
-                      className={cn(
-                        "group text-left text-sm font-medium transition-all duration-300 relative pl-5",
-                        isActive ? "text-[#0F172A]" : "text-slate-400 hover:text-slate-600"
-                      )}
-                    >
-                      <div
+                  {activeContent.sections.map((section) => {
+                    const isActive = activeSectionId === section.id;
+                    return (
+                      <button
+                        key={section.id}
+                        onClick={() => scrollToSection(section.id)}
                         className={cn(
-                          "absolute left-0 top-1/2 -translate-y-1/2 rounded-full transition-all duration-300",
-                          isActive ? "w-2 h-2 bg-[#0F172A]" : "w-1.5 h-1.5 bg-slate-200 group-hover:bg-slate-400"
+                          "group text-left text-sm font-medium transition-all duration-300 relative pl-5",
+                          isActive
+                            ? "text-[#0F172A]"
+                            : "text-slate-400 hover:text-slate-600",
                         )}
-                      />
-                      {section.title}
-                    </button>
-                  );
-                })}
+                      >
+                        <div
+                          className={cn(
+                            "absolute left-0 top-1/2 -translate-y-1/2 rounded-full transition-all duration-300",
+                            isActive
+                              ? "w-2 h-2 bg-[#0F172A]"
+                              : "w-1.5 h-1.5 bg-slate-200 group-hover:bg-slate-400",
+                          )}
+                        />
+                        {section.title}
+                      </button>
+                    );
+                  })}
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -346,14 +350,13 @@ export function ProfileSection() {
                   delay: 0.05,
                 }}
               >
-                <ScrollSpyContent 
-                  sections={activeContent.sections} 
-                  onActiveChange={setActiveSectionId} 
+                <ScrollSpyContent
+                  sections={activeContent.sections}
+                  onActiveChange={setActiveSectionId}
                 />
               </motion.div>
             </AnimatePresence>
           </div>
-          
         </div>
       </div>
     </div>
