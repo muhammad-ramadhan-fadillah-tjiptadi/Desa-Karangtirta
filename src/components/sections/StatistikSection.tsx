@@ -36,35 +36,37 @@ export function StatistikSection() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
       {/* Header */}
-      <div className="flex flex-col mb-12 lg:mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-6"
-        >
-          <span className="bg-brand-navy text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
-            Statistik Kependudukan Karangtirta
-          </span>
-        </motion.div>
-        
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-bold font-serif text-brand-navy mb-6 max-w-2xl leading-tight"
-        >
-          Dashboard Data Kependudukan & Administrasi Desa
-        </motion.h2>
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mb-12 lg:mb-16 border-b border-brand-navy/10 pb-8 lg:pb-12">
+        <div className="flex flex-col items-start text-left max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            <span className="bg-brand-navy text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase">
+              Statistik Kependudukan Karangtirta
+            </span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold font-serif text-brand-navy leading-tight"
+          >
+            Dashboard Data Kependudukan & Administrasi Desa
+          </motion.h2>
+        </div>
         
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-slate-600 max-w-2xl text-sm md:text-base leading-relaxed"
+          className="text-slate-600 max-w-lg text-sm md:text-base leading-relaxed text-left"
         >
           Visualisasi data kependudukan terintegrasi dari database warga Karangtirta, tren laju pertumbuhan, distribusi usia, tingkat pendidikan, dan mata pencaharian pesisir.
         </motion.p>
