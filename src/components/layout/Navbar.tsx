@@ -12,7 +12,7 @@ interface NavItem {
 const NAV_LINKS: NavItem[] = [
   { label: "Beranda", id: "beranda" },
   { label: "Profil", id: "profil" },
-  { label: "Wisata Budaya", id: "wisata" },
+  { label: "Info TPI", id: "tpi" },
   { label: "Aparatur", id: "aparatur" },
   { label: "Statistik", id: "statistik" },
   { label: "Berita", id: "berita" },
