@@ -1,5 +1,6 @@
 import Hero10Demo from "@/components/Hero10Demo";
 import { ProfileSection } from "@/components/sections/ProfileSection";
+import { TpiSection } from "@/components/sections/TpiSection";
 
 export default function LandingPage() {
   return (
@@ -12,6 +13,11 @@ export default function LandingPage() {
       {/* 2. Profil */}
       <section id="profil" className="w-full min-h-screen bg-brand-bg flex items-center justify-center scroll-mt-20">
         <ProfileSection />
+      </section>
+
+      {/* 3. TPI & Maritim */}
+      <section id="tpi" className="w-full min-h-screen bg-brand-bg flex items-center justify-center scroll-mt-20">
+        <TpiSection />
       </section>
 
     </div>
