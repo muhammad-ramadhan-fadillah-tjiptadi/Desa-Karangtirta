@@ -4,10 +4,13 @@ import { TpiSection } from "@/components/sections/TpiSection";
 import { AparaturSection } from "@/components/sections/AparaturSection";
 import { StatistikSection } from "@/components/sections/StatistikSection";
 import { BeritaSection } from "@/components/sections/BeritaSection";
+import { UmkmSection } from "@/components/sections/UmkmSection";
+import { CctvSection } from "@/components/sections/CctvSection";
+import { Footer } from "@/components/ui/footer-section";
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full bg-brand-bg">
       {/* 1. Beranda */}
       <section id="beranda" className="w-full scroll-mt-20">
         <Hero10Demo />
@@ -38,6 +41,14 @@ export default function LandingPage() {
         <BeritaSection />
       </section>
 
+      {/* 7. UMKM */}
+      <UmkmSection />
+
+      {/* 8. CCTV */}
+      <CctvSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
