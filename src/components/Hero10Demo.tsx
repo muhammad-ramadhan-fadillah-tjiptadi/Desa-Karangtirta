@@ -27,10 +27,10 @@ const values = {
       ctaEnabled: true,
       text: "Cek Cuaca Laut",
       link: "https://maritim.bmkg.go.id/",
-      variant: "outline",
+      variant: "default",
       size: "default",
       className:
-        "!bg-transparent hover:!bg-brand-navy/5 !border-2 !border-brand-navy !text-brand-navy rounded-full px-8 py-6 text-sm font-bold tracking-wide transition-all",
+        "!bg-brand-navy hover:!bg-brand-navy-light !text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
     },
   ],
 } satisfies Hero10Props;
