@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { VideoOff, MapPin, Clock, Radio, ShieldAlert } from "lucide-react";
+import { VideoOff, MapPin, Clock, ShieldAlert } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const CCTV_LOCATIONS = [
@@ -36,12 +36,9 @@ export function CctvSection() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-4"
             >
-              <div className="flex items-center gap-2 px-3 py-1 bg-brand-navy/5 border border-brand-navy/10 rounded-full">
-                <Radio className="w-3 h-3 text-brand-sand animate-pulse" />
-                <span className="text-brand-navy font-bold tracking-widest uppercase text-[10px]">
-                  Smart Village Command Center
-                </span>
-              </div>
+              <span className="text-brand-sand font-semibold tracking-widest uppercase text-sm">
+                Pantauan Keamanan
+              </span>
             </motion.div>
             
             <motion.h2 
