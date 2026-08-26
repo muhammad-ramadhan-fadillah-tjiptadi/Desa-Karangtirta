@@ -3,6 +3,7 @@ import { ProfileSection } from "@/components/sections/ProfileSection";
 import { TpiSection } from "@/components/sections/TpiSection";
 import { AparaturSection } from "@/components/sections/AparaturSection";
 import { StatistikSection } from "@/components/sections/StatistikSection";
+import { BeritaSection } from "@/components/sections/BeritaSection";
 import { UmkmSection } from "@/components/sections/UmkmSection";
 import { CctvSection } from "@/components/sections/CctvSection";
 import { Footer } from "@/components/ui/footer-section";
@@ -35,10 +36,15 @@ export default function LandingPage() {
         <StatistikSection />
       </section>
 
-      {/* 6. UMKM */}
+      {/* 6. Berita */}
+      <section id="berita" className="w-full min-h-screen bg-brand-bg flex items-center justify-center scroll-mt-20">
+        <BeritaSection />
+      </section>
+
+      {/* 7. UMKM */}
       <UmkmSection />
 
-      {/* 7. CCTV */}
+      {/* 8. CCTV */}
       <CctvSection />
 
       {/* Footer */}
