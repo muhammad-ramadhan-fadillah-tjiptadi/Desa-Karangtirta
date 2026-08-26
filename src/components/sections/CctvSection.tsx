@@ -20,14 +20,14 @@ export function CctvSection() {
   }, []);
 
   return (
-    <section id="cctv" className="w-full bg-brand-navy py-24 lg:py-32 overflow-hidden relative">
+    <section id="cctv" className="w-full bg-brand-bg py-24 lg:py-32 overflow-hidden relative">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#d4af37 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-sand/5 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-sand/10 blur-[120px] rounded-full translate-x-1/3 -translate-y-1/3"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* 2-Column Header (Dark Mode) */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12 mb-12 lg:mb-16 border-b border-white/10 pb-8 lg:pb-12">
+        {/* 2-Column Header (Light Mode matching UMKM/Statistik) */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12 mb-12 lg:mb-16 border-b border-brand-navy/10 pb-8 lg:pb-12">
           <div className="flex flex-col items-start text-left lg:max-w-xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -36,9 +36,9 @@ export function CctvSection() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-4"
             >
-              <div className="flex items-center gap-2 px-3 py-1 bg-brand-sand/10 border border-brand-sand/20 rounded-full">
+              <div className="flex items-center gap-2 px-3 py-1 bg-brand-navy/5 border border-brand-navy/10 rounded-full">
                 <Radio className="w-3 h-3 text-brand-sand animate-pulse" />
-                <span className="text-brand-sand font-bold tracking-widest uppercase text-[10px]">
+                <span className="text-brand-navy font-bold tracking-widest uppercase text-[10px]">
                   Smart Village Command Center
                 </span>
               </div>
@@ -49,7 +49,7 @@ export function CctvSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold font-serif text-white leading-tight"
+              className="text-4xl md:text-5xl font-bold font-serif text-brand-navy leading-tight"
             >
               Pantauan CCTV Publik
             </motion.h2>
@@ -60,7 +60,7 @@ export function CctvSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-300 max-w-lg text-sm md:text-base leading-relaxed text-left"
+            className="text-slate-600 max-w-lg text-sm md:text-base leading-relaxed text-left"
           >
             Sistem pemantauan keamanan terpadu di beberapa titik strategis Desa Karangtirta. Memastikan kenyamanan warga dan wisatawan secara real-time.
           </motion.p>
