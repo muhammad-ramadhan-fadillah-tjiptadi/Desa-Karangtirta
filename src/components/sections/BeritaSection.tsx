@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { BERITA_DATA } from "@/data/berita";
+import { Calendar, ArrowRight, X } from "lucide-react";
+import { BERITA_DATA, Berita } from "@/data/berita";
+import { Modal } from "antd";
 
 export function BeritaSection() {
+  const [selectedBerita, setSelectedBerita] = useState<Berita | null>(null);
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
       {/* Header */}
@@ -86,18 +89,71 @@ export function BeritaSection() {
               </p>
               
               <div className="mt-auto pt-4 border-t border-slate-100">
-                <Link 
-                  to={`/berita/${berita.id}`}
+                <button 
+                  onClick={() => setSelectedBerita(berita)}
                   className="inline-flex items-center gap-2 text-sm font-bold text-brand-navy group/link hover:text-brand-sand transition-colors duration-300"
                 >
                   Baca Selengkapnya
                   <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" />
-                </Link>
+                </button>
               </div>
             </div>
           </motion.article>
         ))}
       </div>
+
+      {/* Detail Modal */}
+      <Modal
+        title={null}
+        open={!!selectedBerita}
+        onCancel={() => setSelectedBerita(null)}
+        footer={null}
+        width={800}
+        centered
+        closeIcon={<X className="w-6 h-6 text-slate-500 hover:text-brand-navy transition-colors" />}
+        styles={{
+          body: { padding: 0 },
+          content: { borderRadius: '1.5rem', overflow: 'hidden' }
+        }}
+      >
+        {selectedBerita && (
+          <div className="flex flex-col">
+            {/* Modal Image */}
+            <div className="w-full h-64 sm:h-80 relative">
+              <img 
+                src={selectedBerita.image} 
+                alt={selectedBerita.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-brand-navy text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                  {selectedBerita.category}
+                </span>
+              </div>
+            </div>
+            
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8 md:p-10">
+              <div className="flex items-center gap-2 text-slate-500 mb-4">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm font-semibold uppercase tracking-wider">{selectedBerita.date}</span>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-brand-navy mb-6 leading-tight">
+                {selectedBerita.title}
+              </h2>
+              
+              <div className="prose prose-slate max-w-none">
+                <div className="text-slate-600 leading-relaxed text-base sm:text-lg">
+                  {selectedBerita.content.split('\n').map((paragraph, index) => (
+                    <p key={index} className="mb-4">{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }
