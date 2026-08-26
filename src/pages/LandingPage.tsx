@@ -3,6 +3,7 @@ import { ProfileSection } from "@/components/sections/ProfileSection";
 import { TpiSection } from "@/components/sections/TpiSection";
 import { AparaturSection } from "@/components/sections/AparaturSection";
 import { StatistikSection } from "@/components/sections/StatistikSection";
+import { UmkmSection } from "@/components/sections/UmkmSection";
 
 export default function LandingPage() {
   return (
@@ -32,6 +33,8 @@ export default function LandingPage() {
         <StatistikSection />
       </section>
 
+      {/* 6. UMKM */}
+      <UmkmSection />
     </div>
   );
 }
