@@ -1,35 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
-
-const BERITA_DATA = [
-  {
-    id: 1,
-    title: "Kegiatan Gotong Royong Membersihkan Pesisir Pantai",
-    category: "Kegiatan Warga",
-    date: "12 Agustus 2026",
-    image: "/images/berita-1.png",
-    excerpt: "Ratusan warga Desa Karangtirta bersama-sama membersihkan area pesisir pantai untuk menjaga kelestarian lingkungan dan kenyamanan kawasan maritim.",
-    link: "#"
-  },
-  {
-    id: 2,
-    title: "Hasil Tangkapan Nelayan Karangtirta Meningkat Tajam",
-    category: "Ekonomi Pesisir",
-    date: "5 Agustus 2026",
-    image: "/images/berita-2.png",
-    excerpt: "Berkat kondisi cuaca yang bersahabat, hasil tangkapan nelayan lokal mengalami peningkatan, secara langsung mendorong perputaran ekonomi desa.",
-    link: "#"
-  },
-  {
-    id: 3,
-    title: "Rapat Koordinasi Pembangunan Fasilitas Balai Desa Baru",
-    category: "Pemerintahan",
-    date: "28 Juli 2026",
-    image: "/images/berita-3.png",
-    excerpt: "Pemerintah Desa Karangtirta mengadakan rapat terbuka bersama tokoh masyarakat untuk membahas pembaruan ruang publik dan fasilitas balai desa.",
-    link: "#"
-  }
-];
+import { Link } from "react-router-dom";
+import { BERITA_DATA } from "@/data/berita";
 
 export function BeritaSection() {
   return (
@@ -114,13 +86,13 @@ export function BeritaSection() {
               </p>
               
               <div className="mt-auto pt-4 border-t border-slate-100">
-                <a 
-                  href={berita.link} 
+                <Link 
+                  to={`/berita/${berita.id}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-brand-navy group/link hover:text-brand-sand transition-colors duration-300"
                 >
                   Baca Selengkapnya
                   <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.article>
