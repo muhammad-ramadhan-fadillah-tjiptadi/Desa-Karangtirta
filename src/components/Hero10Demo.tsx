@@ -26,16 +26,7 @@ const values = {
     {
       ctaEnabled: true,
       text: "Cek Cuaca Laut",
-      link: "#cuaca",
-      variant: "default",
-      size: "default",
-      className:
-        "!bg-brand-navy hover:!bg-brand-navy-light !text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
-    },
-    {
-      ctaEnabled: true,
-      text: "Lapor Pengaduan",
-      link: "#pengaduan",
+      link: "https://maritim.bmkg.go.id/",
       variant: "default",
       size: "default",
       className:
