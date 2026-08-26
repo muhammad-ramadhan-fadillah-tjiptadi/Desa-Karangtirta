@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, X } from "lucide-react";
-import { BERITA_DATA, Berita } from "@/data/berita";
+import { BERITA_DATA, type Berita } from "@/data/berita";
 import { Modal } from "antd";
 
 export function BeritaSection() {
@@ -112,8 +112,7 @@ export function BeritaSection() {
         centered
         closeIcon={<X className="w-6 h-6 text-slate-500 hover:text-brand-navy transition-colors" />}
         styles={{
-          body: { padding: 0 },
-          content: { borderRadius: '1.5rem', overflow: 'hidden' }
+          body: { padding: 0, borderRadius: '1.5rem', overflow: 'hidden' }
         }}
       >
         {selectedBerita && (
