@@ -33,7 +33,14 @@ export function Cta({ cta }: { cta: CtaProps }) {
       className={cn(cta.className)}
       asChild
     >
-      <a href={cta.link ?? "#"} onClick={handleClick}>{cta.text}</a>
+      <a 
+        href={cta.link ?? "#"} 
+        onClick={handleClick}
+        target={cta.link?.startsWith('http') ? '_blank' : undefined}
+        rel={cta.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+      >
+        {cta.text}
+      </a>
     </Button>
   );
 }
