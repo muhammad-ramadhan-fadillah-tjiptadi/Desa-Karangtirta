@@ -4,6 +4,7 @@ import { TpiSection } from "@/components/sections/TpiSection";
 import { AparaturSection } from "@/components/sections/AparaturSection";
 import { StatistikSection } from "@/components/sections/StatistikSection";
 import { UmkmSection } from "@/components/sections/UmkmSection";
+import { CctvSection } from "@/components/sections/CctvSection";
 
 export default function LandingPage() {
   return (
@@ -35,6 +36,9 @@ export default function LandingPage() {
 
       {/* 6. UMKM */}
       <UmkmSection />
+
+      {/* 7. CCTV */}
+      <CctvSection />
     </div>
   );
 }
