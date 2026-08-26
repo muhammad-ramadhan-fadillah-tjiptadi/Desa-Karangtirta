@@ -47,10 +47,7 @@ export function UmkmSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 xl:gap-8">
           {UMKM_DATA.map((product, i) => (
-            <motion.a 
-              href={`https://wa.me/${product.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.article 
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +81,7 @@ export function UmkmSection() {
                   Oleh: <span className="text-brand-navy">{product.owner}</span>
                 </p>
               </div>
-            </motion.a>
+            </motion.article>
           ))}
         </div>
       </div>
