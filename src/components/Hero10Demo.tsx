@@ -27,19 +27,10 @@ const values = {
       ctaEnabled: true,
       text: "Cek Cuaca Laut",
       link: "#cuaca",
-      variant: "default",
+      variant: "outline",
       size: "default",
       className:
-        "!bg-brand-navy hover:!bg-brand-navy-light !text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
-    },
-    {
-      ctaEnabled: true,
-      text: "Lapor Pengaduan",
-      link: "#pengaduan",
-      variant: "default",
-      size: "default",
-      className:
-        "!bg-brand-navy hover:!bg-brand-navy-light !text-white rounded-full px-8 py-6 text-sm font-semibold tracking-wide shadow-lg transition-all",
+        "!bg-white/10 hover:!bg-white/20 !border !border-white/30 !text-white backdrop-blur-sm rounded-full px-8 py-6 text-sm font-semibold tracking-wide transition-all",
     },
   ],
 } satisfies Hero10Props;
