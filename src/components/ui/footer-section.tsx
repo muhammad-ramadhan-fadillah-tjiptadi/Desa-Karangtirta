@@ -2,7 +2,7 @@
 import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Users, Camera, Briefcase, Video, Anchor } from 'lucide-react';
+import { Anchor } from 'lucide-react';
 
 interface FooterLink {
   title: string;
@@ -19,6 +19,7 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Pemerintahan',
     links: [
+      { title: 'Beranda', href: '#beranda' },
       { title: 'Profil Desa', href: '#profil' },
       { title: 'Aparatur Desa', href: '#aparatur' },
       { title: 'Statistik Warga', href: '#statistik' },
@@ -60,7 +61,7 @@ export function Footer() {
             </p>
           </AnimatedContainer>
 
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-3">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-2 xl:col-span-3">
             {footerLinks.map((section, index) => (
               <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
                 <div className="mb-10 md:mb-0">
@@ -78,8 +79,7 @@ export function Footer() {
                               const targetId = link.href.substring(1);
                               const element = document.getElementById(targetId);
                               if (element) {
-                                const top = element.getBoundingClientRect().top + window.scrollY - 80;
-                                window.scrollTo({ top, behavior: 'smooth' });
+                                element.scrollIntoView({ behavior: 'smooth' });
                               }
                             }
                           }}
