@@ -26,30 +26,11 @@ const footerLinks: FooterSection[] = [
     ],
   },
   {
-    label: 'Layanan Warga',
-    links: [
-      { title: 'Pengurusan Surat', href: '#' },
-      { title: 'Lapor RT/RW', href: '#' },
-      { title: 'Cek Bantuan Desa', href: '#' },
-      { title: 'Kesehatan & Posyandu', href: '#' },
-    ],
-  },
-  {
     label: 'Informasi Publik',
     links: [
       { title: 'Berita & Pengumuman', href: '#berita' },
       { title: 'Produk UMKM', href: '#umkm' },
       { title: 'Pantauan CCTV', href: '#cctv' },
-      { title: 'Kontak Balai Desa', href: '#' },
-    ],
-  },
-  {
-    label: 'Media Sosial',
-    links: [
-      { title: 'Facebook', href: '#', icon: Users },
-      { title: 'Instagram', href: '#', icon: Camera },
-      { title: 'Youtube', href: '#', icon: Video },
-      { title: 'LinkedIn', href: '#', icon: Briefcase },
     ],
   },
 ];
@@ -91,6 +72,17 @@ export function Footer() {
                       <li key={link.title}>
                         <a
                           href={link.href}
+                          onClick={(e) => {
+                            if (link.href.startsWith('#')) {
+                              e.preventDefault();
+                              const targetId = link.href.substring(1);
+                              const element = document.getElementById(targetId);
+                              if (element) {
+                                const top = element.getBoundingClientRect().top + window.scrollY - 80;
+                                window.scrollTo({ top, behavior: 'smooth' });
+                              }
+                            }
+                          }}
                           className="hover:text-brand-sand inline-flex items-center transition-all duration-300 hover:translate-x-1"
                         >
                           {link.icon && <link.icon className="me-2 size-4" />}
